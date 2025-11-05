@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Shared Pinboard",
+  "description": "Collaboratively save and view shared links in real-time using Firestore.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Shared Pinboard"
+  },
+  "permissions": []
+}

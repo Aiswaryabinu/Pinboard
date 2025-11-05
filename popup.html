@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📌 Shared Pinboard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📌 Shared Pinboard</h1>
+      <p class="subtitle">Pin your favorite links and share them with your friends</p>
+    </header>
+
+    <!-- Auth area -->
+    <section id="authArea" class="auth-area">
+      <div id="userInfo" class="user-info" style="display:none">
+        Signed in as <span id="userEmail"></span>
+        <button id="signOutBtn" class="small">Sign out</button>
+      </div>
+
+      <form id="authForm" class="auth-form">
+        <input id="emailInput" type="email" placeholder="Email" aria-label="Email">
+        <input id="passwordInput" type="password" placeholder="Password" aria-label="Password">
+        <div class="auth-actions">
+          <button id="signInBtn" type="button" class="btn small">Sign in</button>
+          <button id="registerBtn" type="button" class="btn small muted">Register</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="input-row">
+      <input id="urlInput" type="url" placeholder="Paste your link here..." aria-label="Link URL">
+      <input id="noteInput" type="text" placeholder="Short note (optional)" aria-label="Note">
+      <button id="addBtn" class="btn">Add</button>
+    </section>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty">No pins yet — add a link to get started.</div>
+  </div>
+
+  <!-- Firebase (compat) - local files -->
+  <script src="firebase-app.js"></script>
+  <script src="firebase-auth.js"></script>
+  <script src="firebase-firestore.js"></script>
+
+  <!-- User must fill firebase-config.js with their project's config -->
+  <script src="firebase-config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
