@@ -8,36 +8,64 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>📌 Shared Pinboard</h1>
-      <p class="subtitle">Pin your favorite links and share them with your friends</p>
-    </header>
-
-    <!-- Auth area -->
-    <section id="authArea" class="auth-area">
-      <div id="userInfo" class="user-info" style="display:none">
-        Signed in as <span id="userEmail"></span>
-        <button id="signOutBtn" class="small">Sign out</button>
+    <!-- Window Title Bar -->
+    <div class="title-bar">
+      <div class="window-controls">
+        <div class="control-btn close"></div>
+        <div class="control-btn minimize"></div>
+        <div class="control-btn maximize"></div>
       </div>
+      <div class="window-title">PINBOARD.EXE</div>
+    </div>
 
-      <form id="authForm" class="auth-form">
-        <input id="emailInput" type="email" placeholder="Email" aria-label="Email">
-        <input id="passwordInput" type="password" placeholder="Password" aria-label="Password">
-        <div class="auth-actions">
-          <button id="signInBtn" type="button" class="btn small">Sign in</button>
-          <button id="registerBtn" type="button" class="btn small muted">Register</button>
-        </div>
-      </form>
-    </section>
+    <!-- Yellow Header -->
+    <div class="app-header">
+      <div class="app-logo">
+        <div class="logo-circle">📌</div>
+        <span class="app-title">Shared Pinboard</span>
+      </div>
+      <div id="headerUserInfo" class="header-user-info" style="display:none">
+        <span id="headerUserEmail" class="header-user-email"></span>
+        <button id="signOutBtn" class="header-signout-btn">×</button>
+      </div>
+    </div>
 
-    <section class="input-row">
-      <input id="urlInput" type="url" placeholder="Paste your link here..." aria-label="Link URL">
-      <input id="noteInput" type="text" placeholder="Short note (optional)" aria-label="Note">
-      <button id="addBtn" class="btn">Add</button>
-    </section>
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Auth area -->
+      <section id="authArea" class="auth-section">
+        <form id="authForm" class="auth-form">
+          <input id="emailInput" type="email" placeholder="Email" aria-label="Email">
+          <input id="passwordInput" type="password" placeholder="Password" aria-label="Password">
+          <div class="auth-actions">
+            <button id="signInBtn" type="button" class="retro-btn">Sign in</button>
+            <button id="registerBtn" type="button" class="retro-btn">Register</button>
+          </div>
+        </form>
+      </section>
 
-    <section id="grid" class="grid" aria-live="polite"></section>
-    <div id="empty" class="empty">No pins yet — add a link to get started.</div>
+      <!-- Search Section -->
+      <section class="search-section">
+        <input id="searchInput" type="text" placeholder="🔍 Search links..." class="retro-input">
+        <button id="clearSearchBtn" class="retro-btn">Clear</button>
+      </section>
+
+      <!-- Input Section -->
+      <section class="input-section">
+        <input id="urlInput" type="url" placeholder="Paste your link here..." class="retro-input">
+        <input id="noteInput" type="text" placeholder="Short note (optional)" class="retro-input">
+        <select id="categorySelect" class="retro-select">
+          <option value="">No Category</option>
+          <option value="study">Study</option>
+          <option value="register">Register</option>
+        </select>
+        <button id="addBtn" class="retro-btn add-btn">Add</button>
+      </section>
+
+      <!-- Links Grid -->
+      <section id="grid" class="links-grid" aria-live="polite"></section>
+      <div id="empty" class="empty-state">No links added yet</div>
+    </div>
   </div>
 
   <!-- Firebase (compat) - local files -->
